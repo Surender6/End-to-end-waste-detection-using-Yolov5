@@ -2,15 +2,17 @@ import sys,os
 from wasteDetection.logger import logging
 from wasteDetection.exception import AppException
 from wasteDetection.components.data_ingestion import DataIngestion
+from wasteDetection.components.data_validation import DataValidation
 
-from wasteDetection.entity.config_entity import (DataIngestionConfig)
+from wasteDetection.entity.config_entity import (DataIngestionConfig,DataValidationConfig)
 
-from wasteDetection.entity.artifacts_entity import (DataIngestionArtifact)
+from wasteDetection.entity.artifacts_entity import (DataIngestionArtifact,DataValidationArtifact)
 
 
 class TrainPipeline:
     def __init__(self):
         self.data_ingestion_config = DataIngestionConfig()
+        self.data_validation_config = DataValidationConfig()
         
     def start_data_ingestion(self)-> DataIngestionArtifact:
         try:
